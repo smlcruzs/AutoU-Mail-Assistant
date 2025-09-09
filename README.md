@@ -41,18 +41,6 @@ PORT=8000
 - Se `ENABLE_OPENAI=0` **ou** não houver `OPENAI_API_KEY`, o app usa **heurísticas locais** para classificar e responder.
 - Se `ENABLE_OPENAI=1` e a chave existir, o app usa a API da OpenAI (com fallback para heurística se falhar).
 
-## Deploy (Render.com)
-
-1. Faça push para um repositório público no GitHub.
-2. Crie um **Web Service** no Render:
-   - Runtime: **Python 3.11**
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `gunicorn app:app`
-   - Defina `OPENAI_API_KEY` (opcional) e `ENABLE_OPENAI` como variáveis de ambiente.
-3. A URL pública ficará disponível ao término do deploy.
-
-> Também é possível publicar no Railway/Zeet/etc. via `Procfile`.
-
 ## Como funciona
 
 - **Pré-processamento (NLP):** normalização simples, remoção de stopwords PT e contagem de palavras-chave.
