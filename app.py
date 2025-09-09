@@ -58,15 +58,17 @@ USE AS PISTAS ABAIXO COMO GUIA (não são listas exaustivas):
 - Exemplos de temas de TRABALHO (sinais de produtivo): status, andamento, suporte, erro, falha, bug, pendente, prazo, protocolo, anexo, documento, comprovante, fatura, boleto, agendamento, cancelamento, reembolso, cadastro, senha, acesso, liberação, homologação, produção, financeiro, pagamento, estorno, chamado, ticket, retorno, resposta, confirmar, verificar, verificação, atender, resolver, contrato, nota fiscal, NF, cobrança, fornecedor, cliente, proposta, orçamento, infraestrutura, servidor, API, deploy, SLA, faturamento, auditoria.
 - Exemplos de NÃO TRABALHO/IMPRODUTIVO: "feliz natal", "feliz ano novo", "boas festas", "parabéns", "felicidades", "bom dia/boa tarde/boa noite" sem pedido concreto, agradecimentos genéricos, "newsletter", "divulgação", "promoção".
 
-REQUISITOS DE SAÍDA (JSON ESTRITO, UMA ÚNICA LINHA):
+RETORNE SOMENTE JSON de uma única linha:
 {
   "categoria": "Produtivo" | "Improdutivo",
-  "resposta": "OK" | "Not OK"
+  "resposta": "string"
 }
 
-REGRAS:
-- Se classificar como Produtivo: "resposta" DEVE ser "OK".
-- Se classificar como Improdutivo: "resposta" DEVE ser "Not OK".
+REGRAS DE RESPOSTA (use exatamente estes textos):
+- Se "Improdutivo":
+  "resposta": "Obrigado pelo contato! Vimos sua mensagem. Responderemos assim que possível."
+- Se "Produtivo":
+  "resposta": "Obrigado pelo contato! Vimos sua demanda e vamos redirecioná-la para alguém responsável imediatamente."
 - Não inclua comentários fora do JSON. Não use markdown. Retorne SOMENTE o JSON.
 """
 
